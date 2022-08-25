@@ -13,6 +13,21 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+//    Напишите приложение по дизайну ниже, которое:
+//    ● Отображает список фильмов и поддерживает пагинацию. API можно найти по ссылке;
+//    ● При тапе на элемент списка должен отображаться экран с описанием выбранного фильма;
+//    ● Опционально:
+//    ○ иконка рейтинга фильма,
+//    ○ список актеров и их фото,
+//    ○ поиск по фильмам на главном экране,
+//    ○ тесты.
+//    Ключ разработчика: 274f828ad283bd634ef4fc1ee4af255f
+//    Примеры запроса:
+//    https://api.themoviedb.org/3/movie/550?api_key=274f828ad283bd634ef4fc1ee4af255f
+//    https://api.themoviedb.org/3/discover/movie?api_key=274f828ad283bd634ef4fc1ee4af255f
+//    Выбор архитектуры и библиотек остается за вами.
+//    Альтернативаня АПИ https://imdb-api.com/ ;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
