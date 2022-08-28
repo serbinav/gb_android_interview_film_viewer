@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.filmslist.databinding.FragmentFilmsBinding
@@ -13,23 +12,29 @@ class FilmsFragment : Fragment() {
 
     private var _binding: FragmentFilmsBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: FilmsViewModel by lazy {
+        ViewModelProvider(this).get(FilmsViewModel::class.java)
+    }
+    private val adapter: MoviesAdapter by lazy {
+        MoviesAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(FilmsViewModel::class.java)
-
         _binding = FragmentFilmsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding.recyclerFilms.adapter = adapter
+        return binding.root
+    }
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.data.observe(viewLifecycleOwner) {
+            adapter.films = it
         }
-        return root
     }
 
     override fun onDestroyView() {
