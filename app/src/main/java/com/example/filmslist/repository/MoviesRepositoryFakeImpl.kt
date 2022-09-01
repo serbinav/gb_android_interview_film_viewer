@@ -1,4 +1,6 @@
-package com.example.filmslist.ui.home
+package com.example.filmslist.repository
+
+import com.example.filmslist.model.SearchResult
 
 class MoviesRepositoryFakeImpl : MoviesRepository {
     override fun getListOfMovies(): List<SearchResult> {

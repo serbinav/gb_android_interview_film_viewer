@@ -1,4 +1,4 @@
-package com.example.filmslist.ui.home
+package com.example.filmslist.model
 
 data class FilmsSearch constructor(
     //Movie = 2
