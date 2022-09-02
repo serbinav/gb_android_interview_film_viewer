@@ -6,34 +6,59 @@ class MoviesRepositoryFakeImpl : MoviesRepository {
     override fun getListOfMovies(): List<SearchResult> {
         return arrayListOf(
             SearchResult(
-                id = "1",
-                resultType = "String",
-                image = "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/80f21137-eebb-4cdc-8124-96c68c07c2a8/52",
-                title = "Игры разума (2001)",
-                description = "От всемирной известности до греховных глубин — все это познал на своей шкуре Джон Форбс Нэш-младший. Математический гений, он на заре своей карьеры сделал титаническую работу в области теории игр, которая перевернула этот раздел математики и практически принесла ему международную известность.\n" +
-                        "\n" +
-                        "Однако буквально в то же время заносчивый и пользующийся успехом у женщин Нэш получает удар судьбы, который переворачивает уже его собственную жизнь."
+                id ="tt0111161",
+                rank="1",
+                title="The Shawshank Redemption",
+                fullTitle="The Shawshank Redemption (1994)",
+                year="1994",
+                image="https=//m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX128_CR0,12,128,176_AL_.jpg",
+                crew="Frank Darabont (dir.), Tim Robbins, Morgan Freeman",
+                imDbRating="9.2",
+                imDbRatingCount="2634182"
             ),
             SearchResult(
-                id = "2",
-                resultType = "String",
-                image = "https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/d69e8ac3-325c-4252-b10f-b51e2a3603ee/52",
-                title = "Игры судьбы (2019)",
-                description = "У Адама есть все: любимая работа, особняк с видом на залив, деньги, красивая девушка. Но все меняет несчастный случай, в результате которого парень оказывается в инвалидном кресле. Ему кажется, что жизнь закончена, но знакомство с русской медсестрой возвращает ему вкус к жизни."
+                id ="tt0068646",
+                rank="2",
+                title="The Godfather",
+                fullTitle="The Godfather (1972)",
+                year="1972",
+                image="https=//m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,12,128,176_AL_.jpg",
+                crew="Francis Ford Coppola (dir.), Marlon Brando, Al Pacino",
+                imDbRating="9.2",
+                imDbRatingCount="1825638"
             ),
             SearchResult(
-                id = "3",
-                resultType = "String",
-                image = "https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/7b4f140a-0f19-4932-b42e-8c5aff750b95/52",
-                title = "Игры разумов (2018)",
-                description = "Англия середины XIX века. Оксфордский профессор Джеймс Мюррей работает над первым в истории словарем английского языка, а его главным соратником становится заключенный психиатрической клиники для особо опасных преступников – доктор Уильям Майнор."
+                id="tt0468569",
+                rank="3",
+                title="The Dark Knight",
+                fullTitle="The Dark Knight (2008)",
+                year="2008",
+                image="https=//m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX128_CR0,12,128,176_AL_.jpg",
+                crew="Christopher Nolan (dir.), Christian Bale, Heath Ledger",
+                imDbRating="9.0",
+                imDbRatingCount="2605413"
             ),
             SearchResult(
-                id = "4",
-                resultType = "String",
-                image = "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/33c98c9a-48d8-463a-9836-08bfeb3f5369/52",
-                title = "Игры шпионов (2020)",
-                description = "Во время Холодной войны Олег Пеньковский, полковник ГРУ генштаба Минобороны, выходит на связь с Гревиллом Винном, британским бизнесменом и шпионом, заинтересованном в постоянном контакте с Москвой. Разведчики договариваются о сотрудничестве, не представляя, чем оно закончится для каждого."
+                id="tt0071562",
+                rank="4",
+                title="The Godfather Part II",
+                fullTitle="The Godfather Part II (1974)",
+                year="1974",
+                image="https=//m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,12,128,176_AL_.jpg",
+                crew="Francis Ford Coppola (dir.), Al Pacino, Robert De Niro",
+                imDbRating="9.0",
+                imDbRatingCount="1252229"
+            ),
+            SearchResult(
+                id="tt0050083",
+                rank="5",
+                title="12 Angry Men",
+                fullTitle="12 Angry Men (1957)",
+                year="1957",
+                image="https=//m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX128_CR0,12,128,176_AL_.jpg",
+                crew="Sidney Lumet (dir.), Henry Fonda, Lee J. Cobb",
+                imDbRating="8.9",
+                imDbRatingCount="777869"
             ),
         )
     }

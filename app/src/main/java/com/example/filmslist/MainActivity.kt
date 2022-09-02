@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 //    https://api.themoviedb.org/3/movie/550?api_key=274f828ad283bd634ef4fc1ee4af255f
 //    https://api.themoviedb.org/3/discover/movie?api_key=274f828ad283bd634ef4fc1ee4af255f
 //    Выбор архитектуры и библиотек остается за вами.
-//    Альтернативаня АПИ https://imdb-api.com/ ;
+//    Альтернативаня АПИ https://imdb-api.com/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
