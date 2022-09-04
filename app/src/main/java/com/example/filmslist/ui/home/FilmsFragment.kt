@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.filmslist.databinding.FragmentFilmsBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FilmsFragment : Fragment() {
 
     private var _binding: FragmentFilmsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: FilmsViewModel by lazy {
-        ViewModelProvider(this).get(FilmsViewModel::class.java)
-    }
+    private val viewModel: FilmsViewModel by viewModel()
+
     private val adapter: MoviesAdapter by lazy {
         MoviesAdapter()
     }
@@ -26,6 +25,7 @@ class FilmsFragment : Fragment() {
     ): View {
         _binding = FragmentFilmsBinding.inflate(inflater, container, false)
         binding.recyclerFilms.adapter = adapter
+        viewModel.getData();
         return binding.root
     }
 

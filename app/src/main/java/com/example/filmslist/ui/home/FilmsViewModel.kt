@@ -5,12 +5,32 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.filmslist.model.SearchResult
 import com.example.filmslist.repository.MoviesRepository
-import com.example.filmslist.repository.MoviesRepositoryFakeImpl
+import kotlinx.coroutines.*
 
 class FilmsViewModel(
-    filmsRepository: MoviesRepository = MoviesRepositoryFakeImpl()
+    private val filmsRepository: MoviesRepository
 ) : ViewModel() {
-
-    private val _data = MutableLiveData(filmsRepository.getListOfMovies())
+    private val _data: MutableLiveData<List<SearchResult>> = MutableLiveData()
     val data: LiveData<List<SearchResult>> = _data
+
+    private val coroutineScope = CoroutineScope(
+        Dispatchers.IO
+                + SupervisorJob()
+                + CoroutineExceptionHandler { _, throwable ->
+            _data.postValue(arrayListOf())
+        })
+
+    private var coroutineJob: Job? = null
+
+    fun getData() {
+        coroutineJob?.cancel()
+        coroutineJob = coroutineScope.launch {
+            _data.postValue(filmsRepository.getTop250OfMovies().results)
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        coroutineScope.cancel()
+    }
 }

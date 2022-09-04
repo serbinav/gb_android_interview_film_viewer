@@ -1,7 +1,7 @@
 package com.example.filmslist.repository
 
-import com.example.filmslist.model.SearchResult
+import com.example.filmslist.model.Top250Data
 
 interface MoviesRepository {
-    fun getListOfMovies(): List<SearchResult>
+    suspend fun getTop250OfMovies(): Top250Data
 }
