@@ -16,7 +16,7 @@ class FilmsViewModel(
     private val coroutineScope = CoroutineScope(
         Dispatchers.IO
                 + SupervisorJob()
-                + CoroutineExceptionHandler { _, throwable ->
+                + CoroutineExceptionHandler { _, _ ->
             _data.postValue(arrayListOf())
         })
 
