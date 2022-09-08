@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.filmslist.databinding.FragmentDescriptionBinding
 import com.example.filmslist.model.SearchResult
+import com.example.filmslist.usePicassoToLoadPhoto
 
 class DescriptionFragment : Fragment() {
 
@@ -29,7 +30,9 @@ class DescriptionFragment : Fragment() {
 
         filmDescription?.let {
             with(binding) {
-                //image.
+                if (it.image.isNotEmpty()) {
+                    usePicassoToLoadPhoto(image, it.image)
+                }
                 title.text = it.title
                 fullTitle.text = it.fullTitle
                 year.text = it.year
