@@ -3,6 +3,8 @@ package com.example.filmslist.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmslist.R
 import com.example.filmslist.databinding.ItemMoviesBinding
@@ -10,13 +12,9 @@ import com.example.filmslist.model.SearchResult
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
-
-    var films: List<SearchResult> = listOf()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+class MoviesAdapter(
+    private val onItemClick: (SearchResult) -> Unit
+) : ListAdapter<SearchResult, MoviesAdapter.MoviesViewHolder>(NoteItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val binding =
@@ -25,18 +23,20 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        holder.bind(films[position])
+        holder.bind(currentList[position])
     }
 
-    override fun getItemCount(): Int = films.size
-
-    class MoviesViewHolder(private val binding: ItemMoviesBinding) :
+    inner class MoviesViewHolder(private val binding: ItemMoviesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: SearchResult) {
-            if (data.image.isNotEmpty() ) {
-                usePicassoToLoadPhoto(binding.imageMovies, data.image)
+            with(binding) {
+                if (data.image.isNotEmpty()) {
+                    usePicassoToLoadPhoto(imageMovies, data.image)
+                }
+                binding.nameMovies.text = data.title
+                
+                root.setOnClickListener { onItemClick.invoke(data) }
             }
-            binding.nameMovies.text = data.title
         }
 
         private fun usePicassoToLoadPhoto(imageView: ImageView, imageLink: String) {
@@ -51,5 +51,15 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
                     }
                 })
         }
+    }
+}
+
+class NoteItemCallback : DiffUtil.ItemCallback<SearchResult>() {
+    override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
+        return oldItem == newItem
     }
 }

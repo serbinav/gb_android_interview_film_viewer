@@ -3,9 +3,13 @@ package com.example.filmslist.ui.home
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.example.filmslist.R
 import com.example.filmslist.databinding.FragmentFilmsBinding
+import com.example.filmslist.ui.description.DescriptionFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FilmsFragment : Fragment() {
@@ -15,7 +19,11 @@ class FilmsFragment : Fragment() {
     private val viewModel: FilmsViewModel by viewModel()
 
     private val adapter: MoviesAdapter by lazy {
-        MoviesAdapter()
+        MoviesAdapter { data ->
+            val bundle = bundleOf(DescriptionFragment.FILM_DESCRIPTION to data)
+            findNavController()
+                .navigate(R.id.action_navigation_films_to_navigation_description, bundle)
+        }
     }
 
     override fun onCreateView(
@@ -33,7 +41,7 @@ class FilmsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.data.observe(viewLifecycleOwner) {
-            adapter.films = it
+            adapter.submitList(it)
         }
     }
 

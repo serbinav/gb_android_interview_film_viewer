@@ -9,11 +9,15 @@
         android:id="@+id/navigation_films"
         android:name="com.example.filmslist.ui.home.FilmsFragment"
         android:label="@string/title_films"
-        tools:layout="@layout/fragment_films" />
+        tools:layout="@layout/fragment_films">
+        <action
+            android:id="@+id/action_navigation_films_to_navigation_description"
+            app:destination="@id/navigation_description" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.filmslist.ui.notifications.NotificationsFragment"
-        android:label="@string/title_not_use"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_description"
+        android:name="com.example.filmslist.ui.description.DescriptionFragment"
+        android:label="@string/title_add_notes"
+        tools:layout="@layout/fragment_description"/>
 </navigation>

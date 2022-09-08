@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Films List</string>
     <string name="title_films">Films</string>
-    <string name="title_not_use">Not Use</string>
+    <string name="title_add_notes">Films Description</string>
+    <string name="title_label">Краткое название</string>
+    <string name="full_title_label">Полное название</string>
+    <string name="year_label">Год</string>
+    <string name="crew_label">Актерский состав</string>
+    <string name="im_db_rating_label">imDb Рейтинг</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
