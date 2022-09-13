@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.filmslist.databinding.FragmentDescriptionBinding
 import com.example.filmslist.model.SearchResult
 import com.example.filmslist.usePicassoToLoadPhoto
+import com.squareup.picasso.Picasso
 
 class DescriptionFragment : Fragment() {
 
@@ -31,7 +32,7 @@ class DescriptionFragment : Fragment() {
         filmDescription?.let {
             with(binding) {
                 if (it.image.isNotEmpty()) {
-                    usePicassoToLoadPhoto(image, it.image)
+                    usePicassoToLoadPhoto(image, it.image, Picasso.Priority.HIGH)
                 }
                 title.text = it.title
                 fullTitle.text = it.fullTitle
