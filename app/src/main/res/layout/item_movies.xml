@@ -7,27 +7,27 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:paddingStart="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
+            android:scaleType="center"
             android:src="@drawable/no_img_200_200" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/name_movies"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/max_text_width"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
             android:textColor="@color/black"
-            tools:text="Человек Летучая Мышь" />
+            tools:text="Доктор Стрейнджлав, или Как я научился не волноваться и полюбил атомную бомбу (1963)" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

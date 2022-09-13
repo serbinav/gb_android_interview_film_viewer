@@ -6,7 +6,10 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.filmslist.R
 import com.example.filmslist.databinding.FragmentFilmsBinding
 import com.example.filmslist.ui.description.DescriptionFragment
@@ -33,6 +36,12 @@ class FilmsFragment : Fragment() {
     ): View {
         _binding = FragmentFilmsBinding.inflate(inflater, container, false)
         binding.recyclerFilms.adapter = adapter
+        binding.recyclerFilms.layoutManager = GridLayoutManager(
+            requireContext(),
+            3,
+            RecyclerView.VERTICAL,
+            false
+        )
         viewModel.getData();
         return binding.root
     }
@@ -42,6 +51,7 @@ class FilmsFragment : Fragment() {
 
         viewModel.data.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+            binding.progress.isVisible = false
         }
     }
 
